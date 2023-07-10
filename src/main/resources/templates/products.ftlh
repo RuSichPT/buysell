@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BuySell</title>
+</head>
+<body>
+<h1>
+    Buysell
+</h1>
+<hr>
+<h4>
+    Товары:
+</h4>
+<#list products as product>
+    <div>
+        <p><b>${product.title}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
+    </div>
+</#list>
+<hr>
+<h3>Создать новый товар</h3>
+<form action="/product/create" method="post">
+    <label for="title">Название объявления:</label> <input type="text" id="title" name="title">
+    <label for="description">Описанеи объявления:</label> <input type="text" id="description" name="description">
+    <label for="price">Цена:</label> <input type="number" id="price" name="price">
+    <label for="city">Город:</label> <input type="text" id="city" name="city">
+    <label for="author">Автор:</label> <input type="text" id="author" name="author">
+    <input type="submit" value="Добавить товар"/>
+</form>
+</body>
+</html>

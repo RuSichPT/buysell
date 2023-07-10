@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BuySell</title>
+</head>
+<body>
+<h1>Buysell</h1><hr>
+<h4>Подробная информация о товаре</h4>
+<b>Название товара:</b> ${product.title} <br>
+<b>Описание товара:</b> ${product.description} <br>
+<b>Цена:</b> ${product.price} <br>
+<b>Город:</b> ${product.city} <br>
+<b>Автор:</b> ${product.author} <br>
+
+<hr>
+</body>
+</html>
