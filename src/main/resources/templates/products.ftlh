@@ -10,22 +10,22 @@
 </h1>
 <hr>
 <h4>
-    Товары:
+    РўРѕРІР°СЂС‹:
 </h4>
 <#list products as product>
     <div>
-        <p><b>${product.title}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
+        <p><b>${product.title}</b> ${product.price} СЂСѓР±. | <a href="/product/${product.id}">РџРѕРґСЂРѕР±РЅРµРµ...</a></p>
     </div>
 </#list>
 <hr>
-<h3>Создать новый товар</h3>
+<h3>РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ С‚РѕРІР°СЂ</h3>
 <form action="/product/create" method="post">
-    <label for="title">Название объявления:</label> <input type="text" id="title" name="title">
-    <label for="description">Описанеи объявления:</label> <input type="text" id="description" name="description">
-    <label for="price">Цена:</label> <input type="number" id="price" name="price">
-    <label for="city">Город:</label> <input type="text" id="city" name="city">
-    <label for="author">Автор:</label> <input type="text" id="author" name="author">
-    <input type="submit" value="Добавить товар"/>
+    <label for="title">РќР°Р·РІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ:</label> <input type="text" id="title" name="title"> <br><br>
+    <label for="description">РћРїРёСЃР°РЅРµРё РѕР±СЉСЏРІР»РµРЅРёСЏ:</label> <input type="text" id="description" name="description"> <br><br>
+    <label for="price">Р¦РµРЅР°:</label> <input type="number" id="price" name="price"> <br><br>
+    <label for="city">Р“РѕСЂРѕРґ:</label> <input type="text" id="city" name="city"> <br><br>
+    <label for="author">РђРІС‚РѕСЂ:</label> <input type="text" id="author" name="author"> <br><br>
+    <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ"/> <br><br>
 </form>
 </body>
 </html>

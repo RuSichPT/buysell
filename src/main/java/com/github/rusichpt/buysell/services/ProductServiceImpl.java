@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    private static long ID = 0;
+    private static Long ID = 0L;
     List<Product> products = new ArrayList<>();
 
     {
@@ -23,9 +23,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getById(long id) {
+    public Product getById(Long id) {
         for (Product p:products) {
-            if (p.getId() == id)
+            if (p.getId().equals(id))
                 return p;
         }
         return null;
@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(long id) {
-        products.removeIf((product) -> product.getId() == id);
+    public void delete(Long id) {
+        products.removeIf((product) -> product.getId().equals(id));
     }
 }

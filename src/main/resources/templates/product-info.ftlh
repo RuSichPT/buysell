@@ -6,13 +6,15 @@
 </head>
 <body>
 <h1>Buysell</h1><hr>
-<h4>Подробная информация о товаре</h4>
-<b>Название товара:</b> ${product.title} <br>
-<b>Описание товара:</b> ${product.description} <br>
-<b>Цена:</b> ${product.price} <br>
-<b>Город:</b> ${product.city} <br>
-<b>Автор:</b> ${product.author} <br>
-
+<h4>РџРѕРґСЂРѕР±РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРІР°СЂРµ</h4>
+<b>РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°:</b> ${product.title} <br>
+<b>РћРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°:</b> ${product.description} <br>
+<b>Р¦РµРЅР°:</b> ${product.price} <br>
+<b>Р“РѕСЂРѕРґ:</b> ${product.city} <br>
+<b>РђРІС‚РѕСЂ:</b> ${product.author} <br>
 <hr>
+<form action="/product/delete/${product.id}" method="post">
+    <input type="submit" value="РЈРґР°Р»РёС‚СЊ С‚РѕРІР°СЂ"/>
+</form>
 </body>
 </html>
