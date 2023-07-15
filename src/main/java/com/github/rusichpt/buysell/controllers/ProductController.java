@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,14 +27,18 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productService.getById(id));
+        Product product = productService.getById(id);
+        model.addAttribute("product", product);
+        model.addAttribute("images", product.getImages());
         return "product-info";
     }
 
     @PostMapping("/product/create")
-    public String createProduct(Product product) {
+    public String createProduct(@RequestParam(value = "file1",required = false) MultipartFile file1,
+                                @RequestParam(value = "file2",required = false) MultipartFile file2,
+                                @RequestParam(value = "file3",required = false) MultipartFile file3, Product product) {
         log.info(product.toString());
-        productService.save(product);
+        productService.save(product, file1, file2, file3);
         return "redirect:/";
     }
 

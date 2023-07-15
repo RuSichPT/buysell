@@ -20,6 +20,9 @@ public class Image {
     private String contentType;
     private boolean isPreviewImage;
     @Lob
-    @Column(columnDefinition="BLOB")
+    @Column(columnDefinition = "BLOB")
     private byte[] bytes;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    private Product product;
+
 }
