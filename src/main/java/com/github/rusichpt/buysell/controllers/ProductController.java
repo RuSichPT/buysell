@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 @Slf4j
@@ -20,8 +22,9 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/")
-    public String products(@RequestParam(required = false) String title, Model model) {
+    public String products(@RequestParam(required = false) String title,Principal principal, Model model) {
         model.addAttribute("products", productService.getAll(title));
+        model.addAttribute("user", productService.getUserByPrincipal(principal));
         return "products";
     }
 
@@ -34,11 +37,12 @@ public class ProductController {
     }
 
     @PostMapping("/product/create")
-    public String createProduct(@RequestParam(value = "file1",required = false) MultipartFile file1,
-                                @RequestParam(value = "file2",required = false) MultipartFile file2,
-                                @RequestParam(value = "file3",required = false) MultipartFile file3, Product product) {
+    public String createProduct(@RequestParam(value = "file1", required = false) MultipartFile file1,
+                                @RequestParam(value = "file2", required = false) MultipartFile file2,
+                                @RequestParam(value = "file3", required = false) MultipartFile file3,
+                                Product product, Principal principal) {
         log.info(product.toString());
-        productService.save(product, file1, file2, file3);
+        productService.save(principal, product, file1, file2, file3);
         return "redirect:/";
     }
 

@@ -5,7 +5,8 @@
     <title>BuySell</title>
 </head>
 <body>
-<h1>BuySell</h1>
+<h1>Buysell</h1>
+<hr>
 <h4>Авторизация</h4>
 <form action="/login" method="post">
     <label for="email">Эл. почта</label><input id="email" type="email" name="username"> <br> <br>
