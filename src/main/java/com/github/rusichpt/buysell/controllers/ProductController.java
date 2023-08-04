@@ -22,7 +22,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/")
-    public String products(@RequestParam(required = false) String title,Principal principal, Model model) {
+    public String products(@RequestParam(required = false) String title, Principal principal, Model model) {
         model.addAttribute("products", productService.getAll(title));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
         return "products";

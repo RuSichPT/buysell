@@ -1,5 +1,6 @@
 package com.github.rusichpt.buysell.services;
 
+import com.github.rusichpt.buysell.models.User;
 import com.github.rusichpt.buysell.repositories.UserRepository;
 import com.github.rusichpt.buysell.services.interfaces.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,10 @@ public class CustomUserDetailsServiceImpl implements CustomUserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);
+        if (user == null)
+            throw new UsernameNotFoundException("Пользователь не зарегистророван!");
+        System.out.println(user.getPassword());
+        return user;
     }
 }
